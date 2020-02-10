@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "281954607028",
+    "firebase_url": "https://nh-7-boom.firebaseio.com",
+    "project_id": "nh-7-boom",
+    "storage_bucket": "nh-7-boom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281954607028:android:c88e4db8d5fe5ea3785ce1",
+        "android_client_info": {
+          "package_name": "com.nh.boom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281954607028-m5sqjgk0ld6nhpk9ibr14f6ro569u8iq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvqpM8yGrrEIZyOrAfp4Ywm6Dsf-4S5Cw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281954607028-m5sqjgk0ld6nhpk9ibr14f6ro569u8iq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
