@@ -9,4 +9,8 @@
     <color name="colorAccent2">#FF4081</color>
     <color name="viewBg">#f1f5f8</color>
     <color name="album_title">#4c4c4c</color>
+
+    <color name="warn">#EDAD1F</color>
+    <color name="info">#AFD135</color>
+    <color name="critical">#FF731C</color>
 </resources>

@@ -1,12 +1,14 @@
 package com.nh.boom;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,7 +32,8 @@ public class AlertsAdapter extends RecyclerView.Adapter<AlertsAdapter.MyViewHold
         public Button resolve;
         public Button acknowledge;
         public TextView entity;
-        public com.veinhorn.tagview.TagView tagView;
+        public TextView severity;
+        public Button fixIt;
 
         public MyViewHolder(View v) {
             super(v);
@@ -38,8 +41,9 @@ public class AlertsAdapter extends RecyclerView.Adapter<AlertsAdapter.MyViewHold
             desc = v.findViewById(R.id.desc);
             resolve = v.findViewById(R.id.resolve);
             acknowledge = v.findViewById(R.id.acknowledge);
-            tagView = v.findViewById(R.id.tagView);
             entity = v.findViewById(R.id.entity_id);
+            severity = v.findViewById(R.id.severity);
+            fixIt = v.findViewById(R.id.fixIt);
         }
     }
 
@@ -68,16 +72,38 @@ public class AlertsAdapter extends RecyclerView.Adapter<AlertsAdapter.MyViewHold
         if (alert.isResolve()) {
             holder.resolve.setClickable(false);
         }
-        holder.tagView.setText(alert.getSeverity());
         holder.entity.setText(alert.getEntityId());
-
-        if (alert.getSeverity().toLowerCase().equals("critical")) {
-            holder.tagView.setTagColor(R.color.colorAccent);
-        } else if (alert.getSeverity().toLowerCase().equals("warn")) {
-            holder.tagView.setTagColor(R.color.design_default_color_primary_dark);
-        } else {
-            holder.tagView.setTagColor(R.color.colorPrimary);
+        if (alert.getSeverity().equals("critical")) {
+            holder.severity.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FF731C")));
+            holder.severity.setText(" Critical ");
         }
+        if (alert.getSeverity().equals("warn")) {
+            holder.severity.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#EDAD1F")));
+            holder.severity.setText("Warning");
+
+        }
+        if (alert.getSeverity().equals("info")) {
+            holder.severity.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#AFD135")));
+            holder.severity.setText("     Info     ");
+        }
+        holder.resolve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "resolve worked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.acknowledge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "ack worked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.fixIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(mContext, "fix it worked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

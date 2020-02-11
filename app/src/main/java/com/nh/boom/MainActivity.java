@@ -3,6 +3,7 @@ package com.nh.boom;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private AlertsAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    Map<String, Integer> alertCount = new HashMap<>();
+
     private DatabaseReference mPostReference;
     private ValueEventListener mPostListener;
+    private Toolbar toolbar;
+
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -43,14 +50,22 @@ public class MainActivity extends AppCompatActivity {
         mPostListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                alertCount.put("critical", 0);
+                alertCount.put("warn", 0);
+                alertCount.put("info", 0);
                 // Get Post object and use the values to update the UI
                 List<Alert> alerts = new ArrayList<>();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Log.i("TAG", child.getKey() + " - " + child.getValue());
-                    alerts.add(child.getValue(Alert.class));
+                    final Alert alert = child.getValue(Alert.class);
+                    alerts.add(alert);
+                    alertCount.put(alert.getSeverity(), alertCount.get(alert.getSeverity()) + 1);
                 }
                 mAdapter.setAlert(alerts);
                 mAdapter.notifyDataSetChanged();
+                ((TextView)findViewById(R.id.fab_info)).setText(alertCount.get("info").toString());
+                ((TextView)findViewById(R.id.fab_error)).setText(alertCount.get("critical").toString());
+                ((TextView)findViewById(R.id.fab_warn)).setText(alertCount.get("warn").toString());
             }
 
             @Override
@@ -72,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -84,8 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
         mPostReference = FirebaseDatabase.getInstance().getReference().child("alerts");
 
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -99,7 +114,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
     }
 
     @Override

@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#000000</item>
-        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorPrimary">#024DA1</item>
+        <item name="colorPrimaryDark">#024DA2</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <style name="AppTheme.NoActionBar">
@@ -15,20 +15,17 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.Button.Black" parent="Base.Widget.AppCompat.Button.Colored">
-        <item name="android:background">#000000</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textAllCaps">false</item>
-    </style>
-
-    <style name="AppTheme.Button.Light" parent="Base.Widget.AppCompat.Button.Colored">
-        <item name="android:background">#FFFFFF</item>
-        <item name="android:textColor">#000000</item>
+        <item name="android:background">#AFD135</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
     <style name="AppTheme.Button.Yellow" parent="Base.Widget.AppCompat.Button.Colored">
-        <item name="android:background">#EEEEEE</item>
-        <item name="android:textColor">#000000</item>
+        <item name="android:background">#4C4C4E</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="AppTheme.Button.Light" parent="Base.Widget.AppCompat.Button.Colored">
+        <item name="android:background">#024DA1</item>
         <item name="android:textAllCaps">false</item>
     </style>
 

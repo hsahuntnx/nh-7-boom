@@ -12,6 +12,8 @@
         android:layout_gravity="center"
         android:layout_margin="@dimen/card_margin"
         android:elevation="3dp"
+        card_view:cardElevation="10dp"
+        card_view:cardMaxElevation="10dp"
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
         <RelativeLayout
@@ -28,6 +30,8 @@
                 android:paddingRight="@dimen/album_title_padding"
                 android:textColor="@color/album_title"/>
 
+
+
             <LinearLayout
                 android:id="@+id/linear_layout_1"
                 android:layout_below="@+id/title"
@@ -41,16 +45,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
-                <com.veinhorn.tagview.TagView
-                    android:id="@+id/tagView"
-                    android:layout_margin="5px"
-                    android:text="Critical"
-                    android:textSize="15sp"
+
+
+                <TextView
+                    android:id="@+id/severity"
+                    style="@style/Widget.Design.FloatingActionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:tagCircleRadius="5"
-                    app:tagType="modern"
-                    app:tagUpperCase="true"/>
+                    android:layout_marginEnd="10dp"
+                    app:backgroundTint="#EDAD1F"
+                    android:padding="5dp"
+                    android:text="      "
+                    android:layout_gravity="right"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp" />
+
+
             </LinearLayout>
 
             <TextView
