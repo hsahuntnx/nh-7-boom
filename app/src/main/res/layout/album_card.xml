@@ -78,6 +78,7 @@
                     android:layout_height="36dp"
                     android:layout_marginRight="5dp"
                     style="@style/AppTheme.Button.Black"
+                    android:elevation="80dp"
                     android:layout_weight="1"
                     android:text="Fix It" />
 
@@ -88,6 +89,7 @@
                     android:layout_height="36dp"
                     android:layout_alignParentRight="true"
                     android:layout_weight="1"
+                    android:elevation="80dp"
                     android:text="Acknowledge" />
 
                 <Button
@@ -96,6 +98,7 @@
                     android:layout_height="36dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="5dp"
+                    android:elevation="80dp"
                     style="@style/AppTheme.Button.Light"
                     android:layout_weight="1"
                     android:text="Resolve" />
