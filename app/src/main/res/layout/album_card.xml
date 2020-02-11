@@ -61,7 +61,6 @@
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
-                android:text="Asdgfhdsg"
                 android:layout_weight="1" />
 
             <LinearLayout
@@ -74,76 +73,33 @@
                 android:layout_width="match_parent">
                 <Button
                     android:id="@+id/fixIt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_width="117dp"
+                    android:layout_height="36dp"
+                    android:layout_marginRight="5dp"
+                    style="@style/AppTheme.Button.Black"
                     android:layout_weight="1"
                     android:text="Fix It" />
+
                 <Button
                     android:id="@+id/acknowledge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/AppTheme.Button.Yellow"
+                    android:layout_width="117dp"
+                    android:layout_height="36dp"
                     android:layout_alignParentRight="true"
                     android:layout_weight="1"
                     android:text="Acknowledge" />
+
                 <Button
                     android:id="@+id/resolve"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="117dp"
+                    android:layout_height="36dp"
                     android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    style="@style/AppTheme.Button.Light"
                     android:layout_weight="1"
                     android:text="Resolve" />
             </LinearLayout>
-
-
-
-
-            <!--            <TextView-->
-<!--                android:id="@+id/title2"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:paddingLeft="@dimen/album_title_padding"-->
-<!--                android:paddingRight="@dimen/album_title_padding"-->
-<!--                android:paddingTop="@dimen/album_title_padding"-->
-<!--                android:textColor="@color/album_title"-->
-<!--                android:textSize="@dimen/album_title" />-->
-
-
-
-<!--            <ImageView-->
-<!--                android:id="@+id/overflow"-->
-<!--                android:layout_width="@dimen/ic_album_overflow_width"-->
-<!--                android:layout_height="@dimen/ic_album_overflow_height"-->
-<!--                android:layout_alignParentRight="true"-->
-<!--                android:layout_below="@id/thumbnail"-->
-<!--                android:layout_marginTop="@dimen/ic_album_overflow_margin_top"-->
-<!--                android:scaleType="centerCrop"/>-->
-
-<!--            <LinearLayout-->
-<!--                android:id="@+id/count2"-->
-<!--                android:layout_alignParentRight="true"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@id/overflow"-->
-<!--                android:paddingBottom="@dimen/songs_count_padding_bottom"-->
-<!--                android:paddingLeft="@dimen/album_title_padding"-->
-<!--                android:paddingRight="@dimen/album_title_padding"-->
-<!--                android:textSize="@dimen/songs_count" >-->
-
-
-<!--                <Button-->
-<!--                    android:id="@+id/button2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentRight="true"-->
-<!--                    android:text="Resolve" />-->
-
-
-<!--            </LinearLayout>-->
-
-
-
-
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

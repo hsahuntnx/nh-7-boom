@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='NX-Boom'
+rootProject.name='Nutanix Boom'
