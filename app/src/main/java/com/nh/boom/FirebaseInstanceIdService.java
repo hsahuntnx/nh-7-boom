@@ -18,6 +18,7 @@ public class FirebaseInstanceIdService extends FirebaseMessagingService {
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
         Log.i("firebase", "data :- " + remoteMessage.getData().toString());
+
     }
 
     @Override

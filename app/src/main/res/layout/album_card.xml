@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="3dp"
+        card_view:cardCornerRadius="@dimen/card_album_radius">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:paddingTop="@dimen/album_title_padding"
+            android:paddingBottom="@dimen/album_title_padding"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/album_title"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:textColor="@color/album_title"/>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_1"
+                android:layout_below="@+id/title"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <TextView
+                    android:id="@+id/entity_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+                <com.veinhorn.tagview.TagView
+                    android:id="@+id/tagView"
+                    android:layout_margin="5px"
+                    android:text="Critical"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:tagCircleRadius="5"
+                    app:tagType="modern"
+                    app:tagUpperCase="true"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_below="@+id/linear_layout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:text="Asdgfhdsg"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout_2"
+                android:layout_below="@+id/desc"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <Button
+                    android:id="@+id/fixIt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    android:text="Fix It" />
+                <Button
+                    android:id="@+id/acknowledge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    android:text="Acknowledge" />
+                <Button
+                    android:id="@+id/resolve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_weight="1"
+                    android:text="Resolve" />
+            </LinearLayout>
+
+
+
+
+            <!--            <TextView-->
+<!--                android:id="@+id/title2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="@dimen/album_title_padding"-->
+<!--                android:paddingRight="@dimen/album_title_padding"-->
+<!--                android:paddingTop="@dimen/album_title_padding"-->
+<!--                android:textColor="@color/album_title"-->
+<!--                android:textSize="@dimen/album_title" />-->
+
+
+
+<!--            <ImageView-->
+<!--                android:id="@+id/overflow"-->
+<!--                android:layout_width="@dimen/ic_album_overflow_width"-->
+<!--                android:layout_height="@dimen/ic_album_overflow_height"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_below="@id/thumbnail"-->
+<!--                android:layout_marginTop="@dimen/ic_album_overflow_margin_top"-->
+<!--                android:scaleType="centerCrop"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/count2"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/overflow"-->
+<!--                android:paddingBottom="@dimen/songs_count_padding_bottom"-->
+<!--                android:paddingLeft="@dimen/album_title_padding"-->
+<!--                android:paddingRight="@dimen/album_title_padding"-->
+<!--                android:textSize="@dimen/songs_count" >-->
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/button2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentRight="true"-->
+<!--                    android:text="Resolve" />-->
+
+
+<!--            </LinearLayout>-->
+
+
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
