@@ -63,7 +63,12 @@
                 android:textColor="@android:color/white"
                 android:textSize="14sp" />
         </androidx.appcompat.widget.Toolbar>
-
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/search"
+            android:background="@color/cardview_dark_background">
+        </SearchView>
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_main"/>
