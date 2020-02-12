@@ -3,7 +3,9 @@ package com.nh.boom;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mPostReference;
     private ValueEventListener mPostListener;
     private Toolbar toolbar;
-
+    private Map<String, Alert> alerts = new HashMap<>();
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 alertCount.put("info", 0);
                 mAdapter.setData(dataSnapshot);
                 for (Alert alert : mAdapter.getAlerts()) {
+                    alerts.put(alert.getEntityId(), alert);
                     alertCount.put(alert.getSeverity(), alertCount.get(alert.getSeverity()) + 1);
                 }
                 mAdapter.notifyDataSetChanged();
@@ -107,6 +111,37 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        SearchView search = findViewById(R.id.search);
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+                Map<String, Alert> alerts1 = new HashMap<>();
+                for(Map.Entry<String, Alert> alertMap: alerts.entrySet()) {
+                    if( alertMap.getValue().getTitle().contains(s) ) {
+                        alerts1.put(alertMap.getValue().getEntityId(), alertMap.getValue());
+                    }
+                }
+                mAdapter.setAlert(alerts1);
+                mAdapter.notifyDataSetChanged();
+                recyclerView.setAdapter(mAdapter);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                if(s.trim().equals("")) {
+                    mAdapter.setAlert(alerts);
+                    mAdapter.notifyDataSetChanged();
+                    mAdapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(mAdapter);
+                }
+                return true;
+            }
+        });
     }
 
     @Override
