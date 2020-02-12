@@ -23,9 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,21 +49,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 alertCount.put("critical", 0);
-                alertCount.put("warn", 0);
+                alertCount.put("warning", 0);
                 alertCount.put("info", 0);
-                // Get Post object and use the values to update the UI
-                List<Alert> alerts = new ArrayList<>();
-                for (DataSnapshot child : dataSnapshot.getChildren()) {
-                    Log.i("TAG", child.getKey() + " - " + child.getValue());
-                    final Alert alert = child.getValue(Alert.class);
-                    alerts.add(alert);
+                mAdapter.setData(dataSnapshot);
+                for (Alert alert : mAdapter.getAlerts()) {
                     alertCount.put(alert.getSeverity(), alertCount.get(alert.getSeverity()) + 1);
                 }
-                mAdapter.setAlert(alerts);
                 mAdapter.notifyDataSetChanged();
                 ((TextView)findViewById(R.id.fab_info)).setText(alertCount.get("info").toString());
                 ((TextView)findViewById(R.id.fab_error)).setText(alertCount.get("critical").toString());
-                ((TextView)findViewById(R.id.fab_warn)).setText(alertCount.get("warn").toString());
+                ((TextView)findViewById(R.id.fab_warn)).setText(alertCount.get("warning").toString());
             }
 
             @Override

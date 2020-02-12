@@ -73,9 +73,19 @@
                 android:paddingTop="@dimen/album_title_padding"
                 android:layout_weight="1" />
 
+            <TextView
+                android:id="@+id/time"
+                android:layout_below="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:layout_weight="1" />
+
             <LinearLayout
                 android:id="@+id/linear_layout_2"
-                android:layout_below="@+id/desc"
+                android:layout_below="@+id/time"
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
